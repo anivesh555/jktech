@@ -11,7 +11,7 @@ const createfile = async (req, res) => {
 
     let code, message, resData;
     try {
-        console.log(req.body, "=====>>>>>>")
+        console.log(req.body,  "need to check for unique bucket=====>>>>>>")
 
         const { bucket_id } = req.params;
         const isValid = mongoose.Types.ObjectId.isValid(bucket_id);
