@@ -5,38 +5,7 @@ const constants = require("../../utilities/constants");
 const { customResponse } = require("../../utilities/helper");
 
 
-// const createBucket = async (req, res) => {
 
-
-//     let code, message, resData;
-//     try {
-//         console.log(req.body, "=====>>>>>>")
-
-//         req.body.images = []
-//         const filePath = path.join(__dirname, "../../../" + "public/files/product");
-//         req.uploadedImages?.map(async (img) => {
-//             const imageDesc = { url: filePath + img, altText: "" }
-//             req.body.images.push(imageDesc)
-//         })
-
-//         const data = await new bucketSchema(req.body).save();
-
-//         code = constants.HTTP_201_CODE;
-//         message = constants.MESSAGE_PRODUCT.ADD;
-//         resData = customResponse({ code, message, data });
-//         return res.status(code).send(resData);
-//     } catch (error) {
-//         console.log("error in post create bucket endpoint", error);
-//         code = error?.code ? error.code : constants.HTTP_500_CODE;
-//         message = error?.message ? error.message : constants.SERVER_ERR;
-//         resData = customResponse({
-//             code,
-//             message,
-//             err: error.message,
-//         });
-//         return res.status(code).send(resData);
-//     }
-// }
 const createBucket = async (req, res) => {
 
 
@@ -44,6 +13,11 @@ const createBucket = async (req, res) => {
     try {
         console.log(req.body, "=====>>>>>>")
 
+        const bucket_name = await bucketSchema.findOne({bucketName:req.body.bucketName})
+        console.log(bucket_name,"==")
+        if (bucket_name) {
+            throw { message: constants.MESSAGE_PRODUCT.BUCKET_EXIST, code: constants.HTTP_422_CODE };
+        }
         // req.body.images = []
         // const filePath = path.join(__dirname, "../../../" + "public/files/product");
         // req.uploadedImages?.map(async (img) => {

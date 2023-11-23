@@ -2,10 +2,7 @@ module.exports = constants = {
     STATUS_SUCCESS: "success",
     STATUS_FAILURE: "failure",
     SOMETHING_WRONG_MSG: "Something went wrong",
-    ENV_TEST: "test",
-    TOKEN_INVALID_MSG: "Invalid Token",
-    AUTHENTICATION_ERR_MSG: "Authentication error. Token required.",
-    NOT_AUUTH_FOR_ROUTE_MSG: "Not Authorized for this route",
+    
     LOCALE: "en",
     USER_REGISTER_SUCCESS_MSG: "User successfully registered",
     LOGIN_SUCCESS: "Logged In successful",
@@ -33,6 +30,7 @@ module.exports = constants = {
       DELETE : "bucket successfully deleted!",
       UPDATE : "bucket data updated successfully",
       NOT_FOUND: "bucket not found!",
+      BUCKET_EXIST:"bucket name is already exist"
     },
     MESSAGE_FILE: {
       ADD: "File added successfully",
