@@ -18,7 +18,7 @@ const bucketSchema = new mongoose.Schema(
             ref: 'File' 
         }],
     }
-    
+
     )
     
 module.exports = db.model("Bucket", bucketSchema);
